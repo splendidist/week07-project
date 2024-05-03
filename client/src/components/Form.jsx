@@ -26,7 +26,11 @@ export default function Form({ selectedOption, setSelectedOption }) {
       <form onSubmit={handleSubmit}>
         <div className="form-one">
           <h3 className="share">Share your</h3>
-          <select value={selectedOption} onChange={handleSelectChange}>
+          <select
+            name="type"
+            value={selectedOption}
+            onChange={handleSelectChange}
+          >
             <option value="dream">Dream</option>
             <option value="nightmare">Nightmare</option>
           </select>
@@ -46,7 +50,7 @@ export default function Form({ selectedOption, setSelectedOption }) {
             placeholder="Share your dream"
             onChange={handleChange}
           />
-          <select>
+          <select name="theme">
             <option value="normal">Normal</option>
             <option value="lucid">Lucid</option>
             <option value="recurring">Recurring</option>

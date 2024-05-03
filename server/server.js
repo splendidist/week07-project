@@ -19,30 +19,25 @@ app.post("/dreams", async (req, res) => {
   const name = req.body.name;
   const date = req.body.date;
   const content = req.body.content;
-  db.query(`INSERT INTO dreams (name, date, content) VALUES ($1, $2, $3)`, [
-    name,
-    date,
-    content,
-  ]);
+  const type = req.body.type;
+  const theme = req.body.theme;
+  const element = req.body.element;
+  db.query(
+    `INSERT INTO dreamposts (name, date, content, type, theme, element) VALUES ($1, $2, $3, $4, $5, $6)`,
+    [name, date, content, type, theme, element]
+  );
   res.json({ success: true });
 });
 
 app.get("/dreams", async (req, res) => {
-  const result = await db.query(`SELECT
-    dreams.name,
-    dreams.date,
-    dreams.content,
-    ARRAY_AGG(element.element) AS element,
-    theme.theme,
-    type.type
-    FROM dreams
-    JOIN dreams_element ON dreams.id = dreams_element.dreams_id
-    JOIN element ON element.id = dreams_element.element_id
-    JOIN dreams_theme ON dreams.id = dreams_theme.dreams_id
-    JOIN theme ON theme.id = dreams_theme.theme_id
-    JOIN dreams_type ON dreams.id = dreams_type.dreams_id
-    JOIN type ON type.id = dreams_type.type_id
-    GROUP BY dreams.id, dreams.name, dreams.date, theme.theme, type.type`);
+  const result = await db.query(`SELECT 
+  dreamposts.name,
+  dreamposts.date,
+  dreamposts.content,
+  dreamposts.type,
+  dreamposts.theme,
+  dreamposts.element
+  FROM dreamposts`);
   res.json(result.rows);
 });
 

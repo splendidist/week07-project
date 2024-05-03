@@ -6,7 +6,7 @@
 .posts-container {
   font-size: 16px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: left;
   flex-wrap: wrap;
 }
 
@@ -17,6 +17,8 @@
   padding: 20px;
   margin: 20px 10px;
   background-color: white;
+  margin-right: 12px;
+  height: 370px;
 }
 
 .post h3 {

@@ -4,7 +4,6 @@ import "../App.css";
 import Header from "../components/Header";
 
 export default function Home() {
-  //change background image
   const [selectedOption, setSelectedOption] = useState("dream");
   const backgroundImage =
     selectedOption === "nightmare"
