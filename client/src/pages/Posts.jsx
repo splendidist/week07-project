@@ -13,9 +13,22 @@ export default function Posts() {
     const data = await response.json();
     setDreams(data);
   }
+
+  //date format
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-GB");
+  }
+
   return (
     <div>
       <Header />
+      <p className="posts-intro">
+        Whether youre seeking inspiration, solace, or simply a window into the
+        human psyche, Dreamers Chronicles invites you to embark on a journey of
+        exploration and discovery. Dive deep into the collective unconscious and
+        witness the power of dreams to illuminate the human experience.
+      </p>
       <div className="posts-container">
         {dreams.map((dream) => {
           return (
@@ -25,7 +38,7 @@ export default function Posts() {
                 {dream.element} | {dream.type} | {dream.theme}
               </p>
               <h3>
-                {dream.name} | {dream.date}
+                {dream.name} | {formatDate(dream.date)}
               </h3>
             </div>
           );

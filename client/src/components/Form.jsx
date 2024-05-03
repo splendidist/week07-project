@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Form() {
+export default function Form({ selectedOption, setSelectedOption }) {
   const [form, setForm] = useState({ name: "", date: "", content: "" });
 
   function handleSubmit(event) {
@@ -16,12 +16,17 @@ export default function Form() {
     setForm({ ...form, [event.target.name]: event.target.value });
   }
 
+  //change background
+  function handleSelectChange(event) {
+    setSelectedOption(event.target.value);
+  }
+
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
         <div className="form-one">
           <h3 className="share">Share your</h3>
-          <select>
+          <select value={selectedOption} onChange={handleSelectChange}>
             <option value="dream">Dream</option>
             <option value="nightmare">Nightmare</option>
           </select>
