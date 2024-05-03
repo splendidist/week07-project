@@ -15,6 +15,18 @@ app.get("/", (req, res) => {
   res.json("this is my root route");
 });
 
+app.post("/dreams", async (req, res) => {
+  const name = req.body.name;
+  const date = req.body.date;
+  const content = req.body.content;
+  db.query(`INSERT INTO dreams (name, date, content) VALUES ($1, $2, $3)`, [
+    name,
+    date,
+    content,
+  ]);
+  res.json({ success: true });
+});
+
 app.get("/dreams", async (req, res) => {
   const result = await db.query(`SELECT
     dreams.name,
@@ -32,19 +44,6 @@ app.get("/dreams", async (req, res) => {
     JOIN type ON type.id = dreams_type.type_id
     GROUP BY dreams.id, dreams.name, dreams.date, theme.theme, type.type`);
   res.json(result.rows);
-  //   res.json("dreams"); //test endpoint
-});
-
-app.post("/dreams", async (req, res) => {
-  const name = req.body.name;
-  const date = req.body.date;
-  const content = req.body.content;
-  db.query(`INSERT INTO dreams (name, date, content) VALUES ($1, $2, $3)`, [
-    name,
-    date,
-    content,
-  ]);
-  res.json({ success: true });
 });
 
 app.listen(8080, () => {

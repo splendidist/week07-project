@@ -1,0 +1,28 @@
+.background-img {
+  background-image: none;
+  height: auto;
+}
+
+.posts-container {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.post {
+  color: #4fd0ff;
+  text-align: center;
+  width: 500px;
+  padding: 20px;
+  margin: 20px 20px;
+  background-color: white;
+}
+
+.post h3 {
+  padding-top: 20px;
+}
+
+.post p {
+  padding: 10px 0px;
+}
