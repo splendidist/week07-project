@@ -3,17 +3,12 @@ import "../Post.css";
 import Header from "../components/Header";
 import Subheading from "../components/Subheading";
 
-export default function Posts() {
-  const [dreams, setDreams] = useState([]);
+export default function Dreams() {
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    getDreams();
+    getPosts();
   }, []);
-  async function getDreams() {
-    const response = await fetch("http://localhost:8080/dreams");
-    const data = await response.json();
-    setDreams(data);
-  }
 
   //date format
   function formatDate(dateString) {
@@ -21,20 +16,25 @@ export default function Posts() {
     return date.toLocaleDateString("en-GB");
   }
 
+  async function getPosts() {
+    const response = await fetch("http://localhost:8080/posts");
+    const data = await response.json();
+    setPosts(data);
+  }
   return (
     <div>
       <Header />
       <Subheading />
       <div className="posts-container">
-        {dreams.map((dream) => {
+        {posts.map((post) => {
           return (
-            <div className="post" key={dream.id}>
-              <p>{dream.content}</p>
+            <div className="post" key={post.id}>
+              <p>{post.content}</p>
               <p>
-                {dream.element} | {dream.type} | {dream.theme}
+                {post.element} | {post.type} | {post.theme}
               </p>
               <h3>
-                {dream.name} | {formatDate(dream.date)}
+                {post.name} | {formatDate(post.date)}
               </h3>
             </div>
           );

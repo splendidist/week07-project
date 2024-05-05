@@ -41,9 +41,8 @@ export default function About() {
         </ul>
         <p>
           Join us on a journey of self-discovery and exploration as we delve
-          into the fascinating world of dreams together. Download Our Dream
-          Diary now and start unraveling the mysteries of your nighttime
-          adventures.
+          into the fascinating world of dreams together. Start using our Dream
+          Diary now and unravel the mysteries of your nighttime adventures.
         </p>
         <p>Sweet dreams!</p>
       </div>

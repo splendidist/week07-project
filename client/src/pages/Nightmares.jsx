@@ -3,17 +3,12 @@ import "../Post.css";
 import Header from "../components/Header";
 import Subheading from "../components/Subheading";
 
-export default function Posts() {
-  const [dreams, setDreams] = useState([]);
+export default function Nightmares() {
+  const [nightmares, setNightmares] = useState([]);
 
   useEffect(() => {
-    getDreams();
+    getNightmares();
   }, []);
-  async function getDreams() {
-    const response = await fetch("http://localhost:8080/dreams");
-    const data = await response.json();
-    setDreams(data);
-  }
 
   //date format
   function formatDate(dateString) {
@@ -21,20 +16,25 @@ export default function Posts() {
     return date.toLocaleDateString("en-GB");
   }
 
+  async function getNightmares() {
+    const response = await fetch("http://localhost:8080/nightmares");
+    const data = await response.json();
+    setNightmares(data);
+  }
   return (
     <div>
       <Header />
       <Subheading />
       <div className="posts-container">
-        {dreams.map((dream) => {
+        {nightmares.map((nightmare) => {
           return (
-            <div className="post" key={dream.id}>
-              <p>{dream.content}</p>
+            <div className="post" key={nightmare.id}>
+              <p>{nightmare.content}</p>
               <p>
-                {dream.element} | {dream.type} | {dream.theme}
+                {nightmare.element} | {nightmare.type} | {nightmare.theme}
               </p>
               <h3>
-                {dream.name} | {formatDate(dream.date)}
+                {nightmare.name} | {formatDate(nightmare.date)}
               </h3>
             </div>
           );

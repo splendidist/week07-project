@@ -90,6 +90,26 @@ select {
   border: none;
 }
 
+.element-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 15px;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.element-input label {
+  color: #5fa9c4;
+  padding: 0px 8px;
+  font-size: 12px;
+}
+
+.element-input input:hover {
+  cursor: pointer;
+}
+
 /* FORM BUTTON */
 
 .form-two button {
@@ -107,4 +127,11 @@ select {
 
 .form-two button:active {
   transform: translateY(5px);
+}
+
+/*SUBMIT MESSAGE*/
+
+.submit-message {
+  color: white;
+  text-align: center;
 }

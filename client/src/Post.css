@@ -3,10 +3,28 @@
   height: auto;
 }
 
+.subheading {
+  display: flex;
+  justify-content: space-around;
+}
+
+.subheading a {
+  width: 150px;
+  text-align: center;
+}
+
+.posts-intro {
+  padding: 0px 20vw;
+  margin: 30px 0px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
 .posts-container {
   font-size: 16px;
   display: flex;
-  justify-content: left;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
@@ -17,22 +35,13 @@
   padding: 20px;
   margin: 20px 10px;
   background-color: white;
-  margin-right: 12px;
-  height: 370px;
-}
-
-.post h3 {
-  padding-top: 20px;
 }
 
 .post p {
   padding: 10px 0px;
 }
 
-.posts-intro {
-  padding: 0px 20vw;
-  margin-bottom: 30px;
-  text-align: center;
-  color: white;
-  font-size: 18px;
+.post h3 {
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
