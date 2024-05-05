@@ -1,7 +1,13 @@
 import { useState } from "react";
 
-export default function Form({ selectedOption, setSelectedOption }) {
-  const [form, setForm] = useState({ name: "", date: "", content: "" });
+export default function Form() {
+  const [form, setForm] = useState({
+    name: "",
+    date: "",
+    content: "",
+    type: "dream",
+    theme: "normal",
+  });
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -14,23 +20,21 @@ export default function Form({ selectedOption, setSelectedOption }) {
 
   function handleChange(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
+    console.log({ ...form, [event.target.name]: event.target.value });
   }
 
   //change background
-  function handleSelectChange(event) {
-    setSelectedOption(event.target.value);
-  }
+  // function handleSelectChange(event) {
+  //   setForm({ ...form, [event.target.name]: event.target.value });
+  //   setSelectedOption(event.target.value);
+  // }
 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
         <div className="form-one">
           <h3 className="share">Share your</h3>
-          <select
-            name="type"
-            value={selectedOption}
-            onChange={handleSelectChange}
-          >
+          <select name="type" onChange={handleChange}>
             <option value="dream">Dream</option>
             <option value="nightmare">Nightmare</option>
           </select>
@@ -50,7 +54,7 @@ export default function Form({ selectedOption, setSelectedOption }) {
             placeholder="Share your dream"
             onChange={handleChange}
           />
-          <select name="theme">
+          <select name="theme" onChange={handleChange}>
             <option value="normal">Normal</option>
             <option value="lucid">Lucid</option>
             <option value="recurring">Recurring</option>
