@@ -62,7 +62,6 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 10px;
 }
 
 .form-one {
@@ -77,6 +76,7 @@ h1 {
 .form-two {
   display: flex;
   flex-direction: column;
+  width: 70vw;
 }
 
 .form-two input,
@@ -147,27 +147,27 @@ select {
     height: 150px;
   }
   .form-container {
-    margin: 60px 10px;
+    margin-top: 3vh;
   }
 }
 
 @media (min-width: 400px) {
   .dream-input {
-    height: 200px;
-  }
-  .form-container {
-    margin: 30px 20px;
+    height: 100px;
   }
 }
 
 /* TABLET */
 
 @media (min-width: 700px) {
-  .form-container {
-    margin: 150px 60px;
+  .dream-input {
+    height: 100px;
   }
   .element-input {
-    padding: 10px 90px;
+    padding: 10px;
+  }
+  .form-two {
+    width: 40vw;
   }
   .form-two button {
     width: 15vw;
@@ -176,12 +176,12 @@ select {
 
 /* DESKTOP */
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   .header {
     padding: 40px 0px;
   }
   h1 {
-    font-size: 48px;
+    font-size: 40px;
   }
   .posts-link,
   .about-link {
@@ -189,14 +189,29 @@ select {
     text-decoration: none;
   }
   .form-container {
-    margin: 30px 400px;
+    margin-top: 3vh;
   }
+  .form-two {
+    width: 40vw;
+  }
+}
+
+@media (min-width: 1200px) {
   .share {
     font-size: 20px;
     margin-right: 10px;
   }
+  .form-container {
+    margin-top: 3vh;
+  }
+  .dream-input {
+    height: 200px;
+  }
   .element-input {
     padding: 10px 40px;
+  }
+  .form-two {
+    width: 35vw;
   }
   .form-two button {
     width: 10vw;
@@ -214,15 +229,11 @@ select {
   .about-link {
     font-size: 24px;
   }
-  .form-container {
-    height: 65vh;
-    margin: 0px;
-  }
   .share {
     font-size: 20px;
   }
   .form-two {
-    width: 25vw;
+    width: 30vw;
   }
   .form-two input,
   select {
