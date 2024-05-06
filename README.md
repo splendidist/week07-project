@@ -15,9 +15,13 @@ Requirements
 - Seed the database with data. I ran the SQL queries in Supabase to test them, and then used them in my server.js file. I have saved all of the scripts in a seed.js file in case I need to rerun them or duplicate the project.
 - Create Express endpoints to handle requests so you can POST and GET the data appropriately for your application.
 - Create multiple pages using react-router-dom
+
   Create a home page (Home.jsx)
+
   Create a page to show all the posts and use fetch to call your server to get your data (Posts.jsx)
+
   Create a page where users can create new posts using a form (Home.jsx)
+
   I also created an about page (About.jsx)
 
 Stretch Goals
