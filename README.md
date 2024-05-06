@@ -77,6 +77,8 @@ Creating and populating the tables went well, and making the junction tables to 
 
 ☁️ Requesting feedback about a specific part of your submission.
 
+Could I get some feedback on my pages not using /posts/:type, and also whether I needed to make a dist folder with npm run build?
+
 ✨ Sources
 
 background image - https://unsplash.com/photos/nimbus-clouds-and-blue-calm-sky-9BJRGlqoIUk
