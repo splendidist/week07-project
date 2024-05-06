@@ -6,23 +6,32 @@
 .subheading {
   display: flex;
   justify-content: space-around;
+  width: 100%;
 }
 
 .subheading a {
-  width: 150px;
   text-align: center;
+  min-width: 75px;
+  padding: 5px 0px;
+  text-decoration: underline;
+  background-color: white;
+  box-shadow: 5px 5px lightblue;
+  color: #5fa9c4;
+  border-radius: 20px;
+}
+
+.subheading a:active {
+  transform: translateY(5px);
 }
 
 .posts-intro {
-  padding: 0px 20vw;
-  margin: 30px 0px;
+  margin-top: 20px;
   text-align: center;
   color: white;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .posts-container {
-  font-size: 16px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -35,6 +44,8 @@
   padding: 20px;
   margin: 20px 10px;
   background-color: white;
+  border-radius: 20px;
+  box-shadow: 10px 10px lightblue;
 }
 
 .post div {
@@ -43,10 +54,42 @@
 }
 
 .post p {
+  font-size: 15px;
   padding: 10px 0px;
 }
 
 .post h3 {
+  font-size: 12px;
   padding-top: 20px;
   padding-bottom: 10px;
+}
+
+/* MEDIA QUERIES */
+
+/* DESKTOP */
+
+@media (min-width: 1200px) {
+  .posts-intro {
+    margin: 50px 100px 20px 100px;
+  }
+  .subheading a {
+    padding: 5px 10px;
+    text-decoration: none;
+  }
+}
+
+@media (min-width: 1900px) {
+  .posts-intro {
+    margin: 50px 200px 20px 200px;
+  }
+  .posts-intro,
+  .subheading a {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .subheading a {
+    padding: 5px 20px;
+  }
 }

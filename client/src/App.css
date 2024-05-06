@@ -5,7 +5,7 @@
 
 body {
   background-color: #b6dfeb;
-  padding: 30px;
+  padding: 20px;
   font-family: calistoga;
 }
 
@@ -14,22 +14,25 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 40px);
+  border-radius: 20px;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 50px 0px;
+  padding: 20px 0px;
+  width: 100%;
 }
 
 h1 {
-  font-size: 88px;
+  font-size: 30px;
 }
 
 .share {
   color: white;
+  font-size: 15px;
 }
 
 /* LINKS */
@@ -44,7 +47,8 @@ h1 {
 .posts-link,
 .about-link {
   color: white;
-  font-size: 24px;
+  font-size: 12px;
+  text-decoration: underline;
 }
 
 .posts-link:hover,
@@ -55,10 +59,10 @@ h1 {
 /* FORM */
 
 .form-container {
-  height: 65vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px 10px;
 }
 
 .form-one {
@@ -71,22 +75,22 @@ h1 {
 }
 
 .form-two {
-  width: 25vw;
   display: flex;
   flex-direction: column;
 }
 
 .form-two input,
 select {
-  padding: 10px;
-  margin: 10px 0px;
+  padding: 5px;
+  margin: 10px 5px;
   border: none;
 }
 
 .dream-input {
-  height: 250px;
+  height: 50px;
   resize: none;
   padding: 10px 10px;
+  margin: 0px 5px;
   border: none;
 }
 
@@ -95,14 +99,12 @@ select {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 0px 15px;
   background-color: white;
-  margin-top: 10px;
+  margin: 10px 5px 0px 5px;
 }
 
 .element-input label {
   color: #5fa9c4;
-  padding: 0px 8px;
   font-size: 12px;
 }
 
@@ -113,11 +115,11 @@ select {
 /* FORM BUTTON */
 
 .form-two button {
-  margin: 10px 0px;
-  padding: 10px 0px;
+  margin: 5px 0px;
+  padding: 5px 0px;
   background-color: white;
   border: none;
-  width: 5vw;
+  width: 25vw;
   align-self: center;
 }
 
@@ -134,4 +136,110 @@ select {
 .submit-message {
   color: white;
   text-align: center;
+}
+
+/* MEDIA QUERIES */
+
+/* MOBILE */
+
+@media (min-width: 350px) {
+  .dream-input {
+    height: 150px;
+  }
+  .form-container {
+    margin: 60px 10px;
+  }
+}
+
+@media (min-width: 400px) {
+  .dream-input {
+    height: 200px;
+  }
+  .form-container {
+    margin: 30px 20px;
+  }
+}
+
+/* TABLET */
+
+@media (min-width: 700px) {
+  .form-container {
+    margin: 150px 60px;
+  }
+  .element-input {
+    padding: 10px 90px;
+  }
+  .form-two button {
+    width: 15vw;
+  }
+}
+
+/* DESKTOP */
+
+@media (min-width: 1200px) {
+  .header {
+    padding: 40px 0px;
+  }
+  h1 {
+    font-size: 48px;
+  }
+  .posts-link,
+  .about-link {
+    font-size: 15px;
+    text-decoration: none;
+  }
+  .form-container {
+    margin: 30px 400px;
+  }
+  .share {
+    font-size: 20px;
+  }
+  .element-input {
+    padding: 10px 40px;
+  }
+  .form-two button {
+    width: 10vw;
+  }
+}
+
+@media (min-width: 1900px) {
+  .header {
+    padding: 40px 0px;
+  }
+  h1 {
+    font-size: 88px;
+  }
+  .posts-link,
+  .about-link {
+    font-size: 24px;
+  }
+  .form-container {
+    height: 65vh;
+    margin: 0px;
+  }
+  .share {
+    font-size: 20px;
+  }
+  .form-two {
+    width: 25vw;
+  }
+  .form-two input,
+  select {
+    padding: 10px;
+    margin: 10px 0px;
+    border: none;
+  }
+  .dream-input,
+  .element-input {
+    margin: 10px 0px;
+  }
+  .element-input {
+    padding: 0px 15px;
+  }
+  .element-input label {
+    padding: 0px 8px;
+  }
+  .form-two button {
+    width: 5vw;
+  }
 }

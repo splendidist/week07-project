@@ -1,3 +1,8 @@
+Putting together the React client code, Node.js server code and Postgres database to build a full stack React application.
+
+Client: https://week07-project.vercel.app/
+Server: https://week07-project.onrender.com/dreams
+
 🎯 Please mention the requirements you met and which goals you achieved for this assignment.
 
 User Stories
@@ -57,7 +62,8 @@ Creating and populating the tables went well, and making the junction tables to 
 - https://supabase.com/docs/guides/database/tables?queryGroups=language&language=js - Supabase tables document
 - https://www.w3schools.com/html/html_form_elements.asp - Form Select
 - https://www.w3schools.com/html/html_forms.asp - Form Checkbox
-- https://stackoverflow.com/questions/70935751/how-to-style-a-react-link-component - Style a react link as <a> tag
+- https://www.w3schools.com/css/css3_shadows_box.asp - CSS box shadow
+- https://stackoverflow.com/questions/70935751/how-to-style-a-react-link-component - Style a react link as anchor tag
 - https://stackoverflow.com/questions/46539480/react-clearing-an-input-value-after-form-submit - Reset a form after submission
 - https://stackoverflow.com/questions/75963788/why-is-my-vercel-project-giving-me-an-error-404-on-refresh - Fix Vercel refresh error
 
@@ -68,3 +74,7 @@ Creating and populating the tables went well, and making the junction tables to 
 - When I deployed my client to vercel, I had an issue where when I refreshed the /posts page, /dreams page, or /nightmares page, I would get a 404 error. I looked online and found that this was a common thing with vercel and react, so I made a file to configure vercel (vercel.json) and added the following code: { "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }] }
 
 ☁️ Requesting feedback about a specific part of your submission.
+
+✨ Sources
+
+background image - https://unsplash.com/photos/nimbus-clouds-and-blue-calm-sky-9BJRGlqoIUk
