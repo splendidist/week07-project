@@ -25,19 +25,18 @@ app.get("/dreams", async (req, res) => {
   dreams.date,
   dreams.content,
   theme.theme,
-  type.type
+  type.type,
+  ARRAY_AGG(element.element) AS element
 FROM dreams
 JOIN dreams_theme ON dreams.id = dreams_theme.dreams_id
 JOIN theme ON theme.id = dreams_theme.theme_id
+JOIN dreams_element ON dreams.id = dreams_element.dreams_id
+JOIN element ON element.id = dreams_element.element_id
 JOIN dreams_type ON dreams.id = dreams_type.dreams_id
 JOIN type ON type.id = dreams_type.type_id
 GROUP BY dreams.id, dreams.name, dreams.date, theme.theme, type.type;`);
   res.json(result.rows);
 });
-
-// ARRAY_AGG(element.element) AS element,
-// JOIN dreams_element ON dreams.id = dreams_element.dreams_id
-// JOIN element ON element.id = dreams_element.element_id
 
 //INSERT INTO DREAMS TABLE
 
@@ -47,7 +46,7 @@ app.post("/dreams", async (req, res) => {
   const content = req.body.content;
   const type = req.body.type;
   const theme = req.body.theme;
-  // const element = req.body.element;
+  const selectedElements = req.body.element;
 
   const dreamInsertResult = await db.query(
     `INSERT INTO dreams (name, date, content) VALUES ($1, $2, $3) RETURNING id`,
@@ -86,62 +85,31 @@ app.post("/dreams", async (req, res) => {
     `INSERT INTO dreams_theme (dreams_id, theme_id) VALUES ($1, $2)`,
     [dreams_id, theme_id]
   );
+
+  //INSERT INTO ELEMENT JUNCTION TABLE
+
+  const elementMap = {
+    spider: 1,
+    snake: 2,
+    falling: 3,
+    flying: 4,
+    "running away": 5,
+    teeth: 6,
+    mirror: 7,
+    "high school": 8,
+    paranoia: 9,
+    none: 10,
+  };
+
+  for (const element of selectedElements) {
+    const element_id = elementMap[element];
+    await db.query(
+      `INSERT INTO dreams_element (dreams_id, element_id) VALUES ($1, $2)`,
+      [dreams_id, element_id]
+    );
+  }
+  res.json({ success: true });
 });
-
-//INSERT INTO ELEMENT JUNCTION TABLE
-
-//   const elementMap = {
-//     spider: 1,
-//     snake: 2,
-//     falling: 3,
-//     flying: 4,
-//     "running away": 5,
-//     teeth: 6,
-//     mirror: 7,
-//     "high school": 8,
-//     paranoia: 9,
-//     none: 10,
-//   };
-
-//   for (const element of updatedElements) {
-//     const element_id = elementMap[element];
-//     await db.query(
-//       `INSERT INTO dreams_element (dreams_id, element_id) VALUES ($1, $2)`,
-//       [dreams_id, element_id]
-//     );
-//   }
-//   res.json({ success: true });
-// });
-
-//   let element_id;
-//   if (element == "spider") {
-//     element_id = 1;
-//   } else if (element == "snake") {
-//     element_id = 2;
-//   } else if (element == "falling") {
-//     element_id = 3;
-//   } else if (element == "flying") {
-//     element_id = 4;
-//   } else if (element == "running away") {
-//     element_id = 5;
-//   } else if (element == "teeth") {
-//     element_id = 6;
-//   } else if (element == "mirror") {
-//     element_id = 7;
-//   } else if (element == "high school") {
-//     element_id = 8;
-//   } else if (element == "paranoia") {
-//     element_id = 9;
-//   } else if (element == "none") {
-//     element_id = 10;
-//   }
-
-//   await db.query(
-//     `INSERT INTO dreams_element (dreams_id, element_id) VALUES ($1, $2)`,
-//     [dreams_id, element_id]
-//   );
-//   res.json({ success: true });
-// });
 
 //VIEW POSTS BY CATEGORY (NIGHTMARE)
 
@@ -151,10 +119,13 @@ app.get("/nightmares", async (req, res) => {
   dreams.date,
   dreams.content,
   theme.theme,
-  type.type
+  type.type,
+  ARRAY_AGG(element.element) AS element
 FROM dreams
 JOIN dreams_theme ON dreams.id = dreams_theme.dreams_id
 JOIN theme ON theme.id = dreams_theme.theme_id
+JOIN dreams_element ON dreams.id = dreams_element.dreams_id
+JOIN element ON element.id = dreams_element.element_id
 JOIN dreams_type ON dreams.id = dreams_type.dreams_id
 JOIN type ON type.id = dreams_type.type_id
 WHERE type.id = 2
@@ -170,10 +141,13 @@ app.get("/posts", async (req, res) => {
   dreams.date,
   dreams.content,
   theme.theme,
-  type.type
+  type.type,
+  ARRAY_AGG(element.element) AS element
 FROM dreams
 JOIN dreams_theme ON dreams.id = dreams_theme.dreams_id
 JOIN theme ON theme.id = dreams_theme.theme_id
+JOIN dreams_element ON dreams.id = dreams_element.dreams_id
+JOIN element ON element.id = dreams_element.element_id
 JOIN dreams_type ON dreams.id = dreams_type.dreams_id
 JOIN type ON type.id = dreams_type.type_id
 WHERE type.id = 1

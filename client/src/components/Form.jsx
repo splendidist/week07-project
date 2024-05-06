@@ -7,13 +7,14 @@ export default function Form() {
     content: "",
     type: "dream",
     theme: "normal",
-    // element: Array(),
+    element: Array(),
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
+    // https://week07-project.onrender.com/dreams   http://localhost:8080/dreams
     fetch("https://week07-project.onrender.com/dreams", {
       method: "POST",
       body: JSON.stringify(form),
@@ -29,17 +30,17 @@ export default function Form() {
   }
 
   //ELEMENT INPUT INTO ARRAY
-  // const handleElementChange = (event) => {
-  //   const { name, value, checked } = event.target;
-  //   const selectedElements = form[name] || [];
-  //   let updatedElements;
-  //   if (checked) {
-  //     updatedElements = [...selectedElements, value];
-  //   } else {
-  //     updatedElements = selectedElements.filter((element) => element !== value);
-  //   }
-  //   setForm({ ...form, [event.target.name]: updatedElements });
-  // };
+  const handleElementChange = (event) => {
+    const { name, value, checked } = event.target;
+    const selectedElements = form[name] || [];
+    let updatedElements;
+    if (checked) {
+      updatedElements = [...selectedElements, value];
+    } else {
+      updatedElements = selectedElements.filter((element) => element !== value);
+    }
+    setForm({ ...form, [event.target.name]: updatedElements });
+  };
 
   //RETURN
   return (
@@ -70,7 +71,7 @@ export default function Form() {
             onChange={handleChange}
             required
           />
-          {/* <div className="element-input">
+          <div className="element-input">
             <input
               type="checkbox"
               id="none"
@@ -151,7 +152,7 @@ export default function Form() {
               onChange={handleElementChange}
             />
             <label htmlFor="running-away"> Running away</label>
-          </div> */}
+          </div>
 
           <select name="theme" onChange={handleChange}>
             <option value="normal">Normal</option>
