@@ -81,7 +81,33 @@ db.prepare(`INSERT INTO dreams (name, date, content) VALUES
     'Jasmine',
     '2024-04-29',
     'Last night, I dreamt that I was flying over a lush forest, the wind rushing through my hair as I soared through the sky. It was the most exhilarating feeling Ive ever experienced, like I was completely free from the constraints of gravity. I flew higher and higher, feeling a sense of joy and liberation wash over me. But just as I reached the peak of my flight, I suddenly started to fall. The ground rushed up to meet me, and I woke up with a start, my heart pounding in my chest.'
-  );`);
+  ),
+  (
+    'Ryan', 
+    '2024-05-03', 
+    'Last night, I dreamt that I was walking through a dense forest shrouded in mist. As I ventured deeper into the woods, I came across a mysterious cabin hidden among the trees. Curiosity piqued, I cautiously approached the cabin and peered through the dusty window. Inside, I saw an old man sitting by the fireplace, his eyes gleaming with wisdom. Suddenly, he turned and locked eyes with me, sending a shiver down my spine. I woke up with a sense of intrigue, wondering about the significance of the encounter.'
+  ),
+  (
+    'Sophia', 
+    '2024-05-04', 
+    'In my dream, I found myself in a bustling marketplace filled with exotic sights and sounds. Vendors peddled their wares, and the air was heavy with the scent of spices and incense. As I navigated through the crowd, I stumbled upon a hidden alleyway lined with ancient-looking doors. Curiosity getting the better of me, I pushed open one of the doors and stepped inside, only to find myself transported to a surreal realm where time seemed to stand still. It was a place of wonder and enchantment, unlike anything I had ever seen before.'
+  ),
+  (
+    'Jacob', 
+    '2024-05-05', 
+    'My dream last night was a bizarre amalgamation of reality and fantasy. I found myself in my childhood home, but everything was slightly off-kilter. The walls were adorned with strange symbols, and the furniture seemed to shift and morph before my eyes. I wandered through the house, feeling both nostalgic and unsettled by the surreal atmosphere. Just as I reached the backyard, I saw a figure standing in the shadows, beckoning me to follow. Instinctively, I knew that I had to heed the call, but before I could take another step, I woke up, feeling disoriented and bewildered by the experience.'
+    ),
+  (
+    'Olivia', 
+    '2024-05-06', 
+    'My dream took place in a vast desert landscape, where towering sand dunes stretched as far as the eye could see. I was alone, wandering aimlessly through the endless expanse, feeling the scorching heat bearing down on me. Just when I thought I couldnt go on any longer, I stumbled upon an oasis nestled among the dunes. The sight of the shimmering water was like a beacon of hope in the desert wasteland, and I felt a surge of relief wash over me as I plunged into its cool embrace. It was a moment of pure bliss amidst the harshness of the desert, reminding me to always seek out the beauty in lifes challenges.'
+    ),
+  (
+    'Lucas', 
+     '2024-05-07', 
+     'Last night, I dreamt that I was aboard a spaceship hurtling through the cosmos at breakneck speed. I gazed out the window in awe as stars streaked past in a dazzling display of light and color. Despite the vastness of space surrounding me, I felt a profound sense of peace and serenity, as if I were exactly where I was meant to be. As the ship continued on its journey, I felt a deep connection to the universe and a newfound appreciation for the wonders of the cosmos. It was a dream unlike any other, leaving me with a sense of wonder and awe that lingered long after I woke up.'
+    );
+    `);
 
 //POPULATE ELEMENT TABLE
 
@@ -119,7 +145,13 @@ db.prepare(`INSERT INTO dreams_element (dreams_id, element_id) VALUES
 (5, 4)
 (1, 7),
 (3, 8),
-(4, 9);`);
+(4, 9),
+(34, 10),
+(35, 10),
+(36, 9),
+(37, 10),
+(38, 4);
+`);
 
 //POPULATE THEME JUNCTION TABLE
 
@@ -128,7 +160,13 @@ db.prepare(`INSERT INTO dreams_theme (dreams_id, theme_id) VALUES
 (2, 4),
 (3, 4),
 (4, 4),
-(5, 4);`);
+(5, 4),
+(34, 4),
+(35, 1),
+(36, 4),
+(37, 2),
+(38, 2);
+`);
 
 //POPULATE TYPE JUNCTION TABLE
 
@@ -137,7 +175,13 @@ db.prepare(`INSERT INTO dreams_type (dreams_id, type_id) VALUES
 (2, 1),
 (3, 2),
 (4, 2),
-(5, 1);`);
+(5, 1),
+(34, 1),
+(35, 1),
+(36, 2),
+(37, 1),
+(38, 1);
+`);
 
 //SELECT ALL DATA
 
