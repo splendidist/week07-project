@@ -10,8 +10,7 @@ export default function Posts() {
     getDreams();
   }, []);
   async function getDreams() {
-    const response = await fetch("http://localhost:8080/dreams");
-    // https://week07-project.onrender.com/dreams
+    const response = await fetch("https://week07-project.onrender.com/dreams");
     const data = await response.json();
     setDreams(data);
   }

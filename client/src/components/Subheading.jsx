@@ -8,7 +8,7 @@ export default function Subheading() {
         <Link to="/posts" className="posts-link">
           All
         </Link>
-        <Link to="/dreams" className="posts-link">
+        <Link to={"/dreams"} className="posts-link">
           Dreams
         </Link>
         <Link to="/nightmares" className="posts-link">
