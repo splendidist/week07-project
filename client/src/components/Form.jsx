@@ -14,7 +14,7 @@ export default function Form() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch("http://localhost:8080/dreams", {
+    fetch("https://week07-project.onrender.com/dreams", {
       method: "POST",
       body: JSON.stringify(form),
       headers: { "Content-Type": "application/json" },
