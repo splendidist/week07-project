@@ -194,6 +194,9 @@ select {
   .form-two {
     width: 40vw;
   }
+  .dream-input {
+    height: 50px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -203,9 +206,6 @@ select {
   }
   .form-container {
     margin-top: 3vh;
-  }
-  .dream-input {
-    height: 200px;
   }
   .element-input {
     padding: 10px 40px;
@@ -240,6 +240,9 @@ select {
     padding: 10px;
     margin: 10px 0px;
     border: none;
+  }
+  .dream-input {
+    height: 200px;
   }
   .dream-input,
   .element-input {
