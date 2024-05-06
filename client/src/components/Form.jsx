@@ -47,7 +47,7 @@ export default function Form() {
     <div className="form-container">
       <form onSubmit={handleSubmit}>
         <div className="form-one">
-          <h3 className="share">Share your</h3>
+          <p className="share">Share your</p>
           <select name="type" onChange={handleChange}>
             <option value="dream">Dream</option>
             <option value="nightmare">Nightmare</option>

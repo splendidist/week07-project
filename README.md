@@ -37,6 +37,7 @@ Future Additions
 
 Some things I want to add to this app in the future include:
 
+- Swap the endpoints for /dreams and /posts so it is less confusing
 - Having the background image and app colour scheme change when the user selects Nightmare from the select input
 - Allow the user to input images and change the colour of their post
 - Allow the user to like or delete posts
