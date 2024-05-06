@@ -17,7 +17,9 @@ export default function Nightmares() {
   }
 
   async function getNightmares() {
-    const response = await fetch("http://localhost:8080/nightmares");
+    const response = await fetch(
+      "https://week07-project.onrender.com/nightmares"
+    );
     const data = await response.json();
     setNightmares(data);
   }
@@ -28,10 +30,15 @@ export default function Nightmares() {
       <div className="posts-container">
         {nightmares.map((nightmare) => {
           return (
-            <div className="post" key={nightmare.id}>
+            <div className="post" key={nightmare.id + nightmare.name}>
               <p>{nightmare.content}</p>
+              <div>
+                {nightmare.element.map((element) => {
+                  return <p key={element.id}>| {element} |</p>;
+                })}
+              </div>
               <p>
-                {nightmare.element} | {nightmare.type} | {nightmare.theme}
+                {nightmare.type} | {nightmare.theme}
               </p>
               <h3>
                 {nightmare.name} | {formatDate(nightmare.date)}

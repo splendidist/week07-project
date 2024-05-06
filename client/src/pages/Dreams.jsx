@@ -17,7 +17,7 @@ export default function Dreams() {
   }
 
   async function getPosts() {
-    const response = await fetch("http://localhost:8080/posts");
+    const response = await fetch("https://week07-project.onrender.com/posts");
     const data = await response.json();
     setPosts(data);
   }
@@ -28,10 +28,15 @@ export default function Dreams() {
       <div className="posts-container">
         {posts.map((post) => {
           return (
-            <div className="post" key={post.id}>
+            <div className="post" key={post.id + post.name}>
               <p>{post.content}</p>
+              <div>
+                {post.element.map((element) => {
+                  return <p key={element.id}>| {element} |</p>;
+                })}
+              </div>
               <p>
-                {post.element} | {post.type} | {post.theme}
+                {post.type} | {post.theme}
               </p>
               <h3>
                 {post.name} | {formatDate(post.date)}

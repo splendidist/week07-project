@@ -11,6 +11,7 @@ export default function Posts() {
   }, []);
   async function getDreams() {
     const response = await fetch("http://localhost:8080/dreams");
+    // https://week07-project.onrender.com/dreams
     const data = await response.json();
     setDreams(data);
   }
@@ -28,7 +29,7 @@ export default function Posts() {
       <div className="posts-container">
         {dreams.map((dream) => {
           return (
-            <div className="post" key={dream.id}>
+            <div className="post" key={dream.id + dream.name}>
               <p>{dream.content}</p>
               <div>
                 {dream.element.map((element) => {
