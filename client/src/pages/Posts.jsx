@@ -30,8 +30,13 @@ export default function Posts() {
           return (
             <div className="post" key={dream.id}>
               <p>{dream.content}</p>
+              <div>
+                {dream.element.map((element) => {
+                  return <p key={element.id}>| {element} |</p>;
+                })}
+              </div>
               <p>
-                {dream.element} | {dream.type} | {dream.theme}
+                {dream.type} | {dream.theme}
               </p>
               <h3>
                 {dream.name} | {formatDate(dream.date)}

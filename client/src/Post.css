@@ -37,6 +37,11 @@
   background-color: white;
 }
 
+.post div {
+  display: flex;
+  justify-content: center;
+}
+
 .post p {
   padding: 10px 0px;
 }
