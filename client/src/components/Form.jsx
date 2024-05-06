@@ -7,6 +7,7 @@ export default function Form() {
     content: "",
     type: "dream",
     theme: "normal",
+    // element: Array(),
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -27,12 +28,20 @@ export default function Form() {
     console.log({ ...form, [event.target.name]: event.target.value });
   }
 
-  //change background
-  // function handleSelectChange(event) {
-  //   setForm({ ...form, [event.target.name]: event.target.value });
-  //   setSelectedOption(event.target.value);
-  // }
+  //ELEMENT INPUT INTO ARRAY
+  // const handleElementChange = (event) => {
+  //   const { name, value, checked } = event.target;
+  //   const selectedElements = form[name] || [];
+  //   let updatedElements;
+  //   if (checked) {
+  //     updatedElements = [...selectedElements, value];
+  //   } else {
+  //     updatedElements = selectedElements.filter((element) => element !== value);
+  //   }
+  //   setForm({ ...form, [event.target.name]: updatedElements });
+  // };
 
+  //RETURN
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
@@ -43,6 +52,7 @@ export default function Form() {
             <option value="nightmare">Nightmare</option>
           </select>
         </div>
+
         <div className="form-two">
           <input
             type="text"
@@ -60,31 +70,69 @@ export default function Form() {
             onChange={handleChange}
             required
           />
-          <div className="element-input">
-            <input type="checkbox" id="none" name="element" value="none" />
+          {/* <div className="element-input">
+            <input
+              type="checkbox"
+              id="none"
+              name="element"
+              value="none"
+              onChange={handleElementChange}
+            />
             <label htmlFor="none"> None</label>
-            <input type="checkbox" id="spider" name="element" value="spider" />
+            <input
+              type="checkbox"
+              id="spider"
+              name="element"
+              value="spider"
+              onChange={handleElementChange}
+            />
             <label htmlFor="spider"> Spider</label>
-            <input type="checkbox" id="snake" name="element" value="snake" />
+            <input
+              type="checkbox"
+              id="snake"
+              name="element"
+              value="snake"
+              onChange={handleElementChange}
+            />
             <label htmlFor="snake"> Snake</label>
             <input
               type="checkbox"
               id="falling"
               name="element"
               value="falling"
+              onChange={handleElementChange}
             />
             <label htmlFor="falling"> Falling</label>
-            <input type="checkbox" id="flying" name="element" value="flying" />
+            <input
+              type="checkbox"
+              id="flying"
+              name="element"
+              value="flying"
+              onChange={handleElementChange}
+            />
             <label htmlFor="flying"> Flying</label>
-            <input type="checkbox" id="teeth" name="element" value="teeth" />
+            <input
+              type="checkbox"
+              id="teeth"
+              name="element"
+              value="teeth"
+              onChange={handleElementChange}
+            />
             <label htmlFor="teeth"> Teeth</label>
-            <input type="checkbox" id="mirror" name="element" value="mirror" />
+            <input
+              type="checkbox"
+              id="mirror"
+              name="element"
+              value="mirror"
+              onChange={handleElementChange}
+            />
             <label htmlFor="mirror"> Mirror</label>
             <input
               type="checkbox"
               id="paranoia"
               name="element"
               value="paranoia"
+              onChange={handleElementChange}
             />
             <label htmlFor="paranoia"> Paranoia</label>
             <input
@@ -92,6 +140,7 @@ export default function Form() {
               id="high-school"
               name="element"
               value="high-school"
+              onChange={handleElementChange}
             />
             <label htmlFor="high-school"> High school</label>
             <input
@@ -99,15 +148,18 @@ export default function Form() {
               id="running-away"
               name="element"
               value="running-away"
+              onChange={handleElementChange}
             />
             <label htmlFor="running-away"> Running away</label>
-          </div>
+          </div> */}
+
           <select name="theme" onChange={handleChange}>
             <option value="normal">Normal</option>
             <option value="lucid">Lucid</option>
             <option value="recurring">Recurring</option>
             <option value="false-awakening">False Awakening</option>
           </select>
+
           <button>Submit</button>
         </div>
         {formSubmitted && <p className="submit-message">Submitted!</p>}
