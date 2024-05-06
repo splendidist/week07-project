@@ -11,13 +11,9 @@ Requirements
 
 - Design a database schema with relationships between tables
   Figma design and database schema: https://www.figma.com/file/jkJ4lHSEtxFHz8mQVhw2Yx/week07-project?type=design&node-id=0%3A1&mode=design&t=Ua8T3gTIsE7SHNKi-1
-
 - Create a new application with a React client and an Express server
-
 - Seed the database with data. I ran the SQL queries in Supabase to test them, and then used them in my server.js file. I have saved all of the scripts in a seed.js file in case I need to rerun them or duplicate the project.
-
 - Create Express endpoints to handle requests so you can POST and GET the data appropriately for your application.
-
 - Create multiple pages using react-router-dom
 - Create a home page (Home.jsx)
 - Create a page to show all the posts and use fetch to call your server to get your data (Posts.jsx)
